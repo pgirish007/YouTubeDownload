@@ -8,7 +8,10 @@ def main(argv):
 		sys.exit(2)
 		
 	cwd = os.getcwd()
-	print(cwd)
+	isExist = os.path.exists(cwd + "/downloaded")
+	if not isExist:
+		os.makedirs(cwd + "/downloaded")
+		
 	for arg in argv[1:]:
 		try:
 			yt = YouTube(arg)
